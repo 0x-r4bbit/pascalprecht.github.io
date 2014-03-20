@@ -37,7 +37,7 @@ Well, yes. It is true that it's really hard to get started with this editor. You
 
 You don't need a mouse, you push yourself to use as few key strokes as possible to do your operations (which again makes you faster), you learn how to customize the <strong>entire</strong> editor that it fits to your preferences and you finally become a Vim power user and only leave it when it's really needed.
 
-I climbed that wall and it took me weeks to get used to the basic things like editing files, opening different files. Back in the days I switched from <a href="https://www.eclipse.org/">Eclipse</a> to Vim. You probably agree that this IDE is slow by default. But despite from that, once I was able to do some basic operations in Vim and actually started working again, I made almost as twice as much progress at work in about half the time. I know that sounds kind of crazy but I'm serious. And that convinced me that I made the right choice.
+I climbed that wall and it took me weeks to get used to the basic things like editing files, opening different files etc. Back in the days I switched from <a href="https://www.eclipse.org/">Eclipse</a> to Vim. You probably agree that this IDE is slow by default. But despite from that, once I was able to do some basic operations in Vim and actually started working again, I made almost as twice as much progress at work in about half the time. I know that sounds kind of crazy but I'm serious. And that convinced me that I made the right choice.
 
 So, do yourself a favor and climb that mountain. Just remember that you can slide down afterwards.
 
