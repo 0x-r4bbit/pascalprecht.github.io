@@ -81,4 +81,12 @@ Other editors try to bring Vim functionality into their environments. For exampl
 
 There was this great article on [why Atom can't replace Vim](https://medium.com/programming-ideas-tutorial-and-experience/433852f4b4d1) popping up recently, you really should read it.
 
-However, that's all I have.
+<s>However, that's all I have.</s>
+
+Based on some feedback I got, I'm adding a few links to resources here that I find very useful and maybe help you out getting started with Vim too.
+
+- [Coming Home to Vim](http://stevelosh.com/blog/2010/09/coming-home-to-vim/) by Steve Losh
+- [Vim from novice to professional](http://ontwik.com/tools/vim-from-novice-to-professional-by-derek-wyatt-p1/) by Derek Wyatt
+- [All episodes on Vimcasts.org](http://vimcasts.org/episodes/archive) by Drew Neil
+
+I also recommend typing `vimtutor` into your console and go through it.
