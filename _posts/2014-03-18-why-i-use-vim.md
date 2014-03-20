@@ -85,6 +85,7 @@ There was this great article on [why Atom can't replace Vim](https://medium.com/
 
 Based on some feedback I got, I'm adding a few links to resources here that I find very useful and maybe help you out getting started with Vim too.
 
+- [Your problem with Vim is that you don't grok vi](http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118) on StackOverflow
 - [Coming Home to Vim](http://stevelosh.com/blog/2010/09/coming-home-to-vim/) by Steve Losh
 - [Vim from novice to professional](http://ontwik.com/tools/vim-from-novice-to-professional-by-derek-wyatt-p1/) by Derek Wyatt
 - [All episodes on Vimcasts.org](http://vimcasts.org/episodes/archive) by Drew Neil
