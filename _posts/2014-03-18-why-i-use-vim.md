@@ -23,21 +23,21 @@ To make things clear, this post is not about saying that Vim is the answer to ev
 
 ## Climbing the wall and sliding down afterwards
 
-Most people don't really know what Vim is all about. All they know is that it's a text editor sitting in almost every platform and that one can use it to for example editing a file on a remote server. Vim is a lot more. I know, it's not as easy to use as other editors and IDE's, but once you get used to it, you don't want to work without it anymore. <a href="#figure-1">Figure 1</a> shows the way how I think how steep the learning curve of Vim is.
+Most people don't really know what Vim is all about. All they know is that it's a text editor sitting in almost every platform and that one can use it to for example editing a file on a remote server. Vim is a lot more. I know, it's not as easy to use as other editors and IDE's, but once you get used to it, you don't want to work without it anymore. <a href="#figure-1" title="Link to figure 1">Figure 1</a> shows the way how I think how steep the learning curve of Vim is.
 
 <figure id="figure-1">
-  <img style="width: 100%" src="/public/vim-learn-curve.jpg">
+  <img style="width: 100%" alt="Figure that represents Vim's learning curve" src="/public/vim-learn-curve.jpg">
   <figcaption>Figure 1: The Vim learning curve</figcaption>
 </figure>
 
 As you can see, it's not a curve at all. It's a wall. But you also see, once you climbed that wall, you can lean back and slide down on the other side. So what do I try to say with this relatively lovely figure of Vim's learning <s>curve</s> wall?
 
 
-Well, yes. It is true that it's really hard to get started with this editor. You have to understand its <a href="#its-a-modal-editor">modal behavior</a>, you have to learn a bunch of <a href="#text-objects-and-motions">key bindings</a>, you even have to stick with a textual user interface. However, once you learned the fundamentals of Vim you'll notice that the original idea behind this editor is actually quite clever and that you're probably much faster than before.
+Well, yes. It is true that it's really hard to get started with this editor. You have to understand its <a href="#its-a-modal-editor" title="Link to modal behaviour section">modal behavior</a>, you have to learn a bunch of <a title="Link to text objects section"href="#text-objects-and-motions">key bindings</a>, you even have to stick with a textual user interface. However, once you learned the fundamentals of Vim you'll notice that the original idea behind this editor is actually quite clever and that you're probably much faster than before.
 
 You don't need a mouse, you push yourself to use as few key strokes as possible to do your operations (which again makes you faster), you learn how to customize the <strong>entire</strong> editor that it fits to your preferences and you finally become a Vim power user and only leave it when it's really needed.
 
-I climbed that wall and it took me weeks to get used to the basic things like editing files, opening different files etc. Back in the days I switched from <a href="https://www.eclipse.org/">Eclipse</a> to Vim. You probably agree that this IDE is slow by default. But despite from that, once I was able to do some basic operations in Vim and actually started working again, I made almost as twice as much progress at work in about half the time. I know that sounds kind of crazy but I'm serious. And that convinced me that I made the right choice.
+I climbed that wall and it took me weeks to get used to the basic things like editing files, opening different files etc. Back in the days I switched from <a href="https://www.eclipse.org/" title="Eclipse website">Eclipse</a> to Vim. You probably agree that this IDE is slow by default. But despite from that, once I was able to do some basic operations in Vim and actually started working again, I made almost as twice as much progress at work in about half the time. I know that sounds kind of crazy but I'm serious. And that convinced me that I made the right choice.
 
 So, do yourself a favor and climb that mountain. Just remember that you can slide down afterwards.
 
