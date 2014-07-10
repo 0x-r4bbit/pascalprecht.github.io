@@ -21,7 +21,7 @@ If you read this article right now, you are probably a Vim user. Because you wan
 
 To make things clear, this post is not about saying that Vim is the answer to everything and you should switch your editors and IDE's right now to be productive. It's also not about saying that everything that is not Vim, is not as good as Vim. Whatever opinions come to your mind when reading this article, all I do here is explaining why I've chosen Vim as my primary editor for almost everything. If it doesn't work for you, that's okay. Just choose what works best for you. If it sounds interesting to you and you decide to try this editor, I'd be very happy to hear from your experiences and how things work out.
 
-## Climbing the wall and sliding down afterwards
+<h2 id="climbing-the-wall-and-sliding-down-afterwards">Climbing the wall and sliding down afterwards</h2>
 
 Most people don't really know what Vim is all about. All they know is that it's a text editor sitting in almost every platform and that one can use it to for example editing a file on a remote server. Vim is a lot more. I know, it's not as easy to use as other editors and IDE's, but once you get used to it, you don't want to work without it anymore. <a href="#figure-1" title="Link to figure 1">Figure 1</a> shows the way how I think how steep the learning curve of Vim is.
 
