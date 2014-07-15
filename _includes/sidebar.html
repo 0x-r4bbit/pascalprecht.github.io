@@ -7,11 +7,12 @@
   <img style="width: 100%; margin-bottom: 0; border-radius: 0;" src="/public/me.jpg">
   <div class="sidebar-item">
     <p>{{ site.description }}</p>
-    <p>{{ site.description_2 }}</p>
   </div>
 
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item{% if page.title == "Home" %} active{% endif %}" href="/">Blog</a>
+    <a class="sidebar-nav-item" href="/about/">About</a>
+    <a class="sidebar-nav-item" href="/talks/">Talks</a>
 
     {% comment %}
       The code below dynamically generates a sidebar nav of pages with

@@ -7,7 +7,7 @@ You've probably heard of this new hot thing that will change the way we build we
 
 Actually, Web Components are a set of four different specifications. These are **HTML Imports**, **HTML Templates**, **Custom Elements** and **Shadow DOM**. I will not go into much detail here since that's not the scope of this article. If you want to learn more about Web Components in general, I recommend checking out the community project [webcomponents.org](http://webcomponents.org), which is full of useful resources and information about the technologies.
 
-With evolving standards come evolving tools, libraries and frameworks. When it comes to web components, there are basically two frameworks that try to make your life easier: [X-Tags](http://www.x-tags.org/) by Mozilla and [Polymer](http://polymer-project.org), a Google project. **Both use the same polyfills under the hood** to make the four web component technologies work in all major browsers. However, whereas X-Tags API abstracts only the imperative way of building web components, goes Polymer a step further and also provides a declarative way.
+With evolving standards come evolving tools, libraries and frameworks. When it comes to web components, there are basically two frameworks that try to make your life easier: [X-Tag](http://www.x-tags.org/) by Mozilla and [Polymer](http://polymer-project.org), a Google project. **Both use the same polyfills under the hood** to make the four web component technologies work in all major browsers. However, whereas X-Tag API abstracts only the imperative way of building web components, goes Polymer a step further and also provides a declarative way.
 
 For example, defining your own custom element with Polymer looks something like this:
 
@@ -128,7 +128,7 @@ You won't find anything in the official docs and you can also read about it in t
 
 ## Composition over inheritance
 
-Basically it's always better to prefer composition over inheritance at a first glance, to stay flexible. So instead of explicitly declare which element extends which other element to reuse functionality, it's better to define new elements that **make use** of existing elements. 
+Basically it's always better to prefer composition over inheritance at a first glance, to stay flexible. So instead of explicitly declare which element extends which other element to reuse functionality, it's better to define new elements that **make use** of existing elements.
 
 We could take our `icon-button` element and break it down into three smaller elements using composition. For example we could have a `basic-icon` element, a `basic-button` element and a `icon-button` element, that does **not** explicitly extend `basic-button`, but uses it in it's Shadow DOM. Then we could also define a `icon-link` element, that uses `basic-icon` and another `basic-link` element (or whatever comes to your mind).
 
