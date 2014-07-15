@@ -84,13 +84,13 @@ Using our extended element stays straight forward:
 <icon-button>Hello</icon-button>
 ```
 
-Depending on your use case, you might want to use the `is=""` syntax to extend an existing element in your application code. So instead of using your extended element as tag, you would rather do something like this:
+Depending on your use case, you might want to use the `is=""` syntax to extend an existing element in your application code. Just keep in mind that `is=""` extensions are only for native elements. So instead of using your extended element as tag, you would rather do something like this:
 
 ```html
-<basic-button is="icon-button"></basic-button>
+<button is="mega-button"></button>
 ```
 
-Again, this depends on your use case. In this example it probably doesn't make much sense to use this syntax.
+Again, this depends on your use case.
 
 If there's additional functionality you want to add, for example a `ready` callback handler, you can define it directly on the constructor call. To make sure that the parent element callback handler is called too, you can call `this.super()` which does exactly that:
 
@@ -114,10 +114,10 @@ Now that we know how to extend an element with Polymer, you might wonder how we 
 
 ```html
 <!-- draggable img -->
-<img is="draggable">
+<img is="my-draggable">
 
 <!-- draggable something -->
-<div is="draggable"></div>
+<div is="my-draggable"></div>
 ```
 
 So how can we extend multiple elements? You think there has to be a way to say something like `extends="foo bar"` right? Unfortunately, the answer is **no**. Or to make it more clear:
@@ -136,7 +136,7 @@ To get an idea how far you can actually break down things, just take a look at [
 
 ## Reuse functionality with mixins
 
-However, even if we're able to compose new elements with existing elements, there are cases where we really just want to reuse existing functionality. Just think about the `draggable` example. Having the functionality of being draggable is not really about composing a new element out of existing elements. It's rather about sharing functionality across multiple elements.
+However, even if we're able to compose new elements with existing elements, there are cases where we really just want to reuse existing functionality. Just think about the `my-draggable` example. Having the functionality of being draggable is not really about composing a new element out of existing elements. It's rather about sharing functionality across multiple elements.
 
 Can we do that with Polymer? Yes we can. Polymer supports mixins. With mixins we're able to extends existing components with shared functionality without explicitly extending other elements. All we have to do is to isolate our shared functionality and mix it into our components constructor using `Polymer.mixin()`.
 
