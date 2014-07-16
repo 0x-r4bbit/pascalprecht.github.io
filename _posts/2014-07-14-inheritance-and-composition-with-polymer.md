@@ -138,7 +138,7 @@ To get an idea how far you can actually break down things, just take a look at [
 
 However, even if we're able to compose new elements with existing elements, there are cases where we really just want to reuse existing functionality. Just think about the `my-draggable` example. Having the functionality of being draggable is not really about composing a new element out of existing elements. It's rather about sharing functionality across multiple elements.
 
-Can we do that with Polymer? Yes we can. Polymer supports mixins. With mixins we're able to extends existing components with shared functionality without explicitly extending other elements. All we have to do is to isolate our shared functionality and mix it into our components constructor using `Polymer.mixin()`.
+Can we do that with Polymer? Yes we can. Polymer supports mixins. With mixins we're able to extends existing components with shared functionality without explicitly extending other elements. All we have to do is to isolate our shared functionality and mix it into our components constructor using `Platform.mixin()`. The `Platform` object is globally available when Polymer is loaded since it comes with Polymer by default.
 
 For example let's say we have a mixin object that provides functionality that should be shared across multiple components:
 
@@ -151,9 +151,9 @@ var sharedMixin = {
 Plain old JavaScript. Now, if we want to reuse the provided functionality, all we have to do is to extend the constructor of our component using `Polymer.mixin()` like so:
 
 ```js
-Polymer('my-component', Polymer.mixin({
+Polymer('my-component', Platform.mixin({
   // component logic
-}, sharedMixin);
+}, sharedMixin));
 ```
 
 ## Sharing mixins across multiple imports
@@ -177,9 +177,9 @@ And thank HTML Imports, we can just import it into our own component as we would
 
 <element name="foo-element">
   <script>
-    Polymer('foo-element', Polymer.mixin({
+    Polymer('foo-element', Platform.mixin({
       // foo-element logic
-    }, sharedMixin);
+    }, sharedMixin));
   </script>
 </element>
 ```
