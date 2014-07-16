@@ -148,7 +148,7 @@ var sharedMixin = {
 };
 ```
 
-Plain old JavaScript. Now, if we want to reuse the provided functionality, all we have to do is to extend the constructor of our component using `Polymer.mixin()` like so:
+Plain old JavaScript. Now, if we want to reuse the provided functionality, all we have to do is to extend the constructor of our component using `Platform.mixin()` like so:
 
 ```js
 Polymer('my-component', Platform.mixin({
