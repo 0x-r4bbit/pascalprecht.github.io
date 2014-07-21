@@ -185,3 +185,5 @@ And thank HTML Imports, we can just import it into our own component as we would
 ```
 
 (Since I struggled especially with that part, I posted another [StackOverflow question](http://stackoverflow.com/questions/24180622/is-it-possible-to-share-mixins-across-web-components-and-imports-in-polymer) here.)
+
+Thanks to [Eric](http://twitter.com/ebidel) for reviewing this article.
