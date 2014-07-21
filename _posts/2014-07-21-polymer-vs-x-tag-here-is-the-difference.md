@@ -179,6 +179,8 @@ xtag.register('my-element', {
 ```
 Using this property, X-Tag creates a `shadowRoot` behind the scences, creates a document fragment from your applied template string and inserts it into the elements ShadowDOM. And yes, this snippet is even smaller than Polymer's declarative approach.
 
+We created a hello world component for [X-Tag](https://github.com/webcomponents/hello-world-xtag) and [Polymer](https://github.com/webcomponents/hello-world-polymer), so you can check out and compare the source.
+
 ## Defining attributes
 
 Defining attributes in Polymer is pretty straight forward. When declaring a custom element, all you have to do is to add an `attributes` attribute that defines the names of your public element attributes:
