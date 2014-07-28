@@ -3,7 +3,7 @@ layout: post
 title: Polymer vs. X-Tag - Here's the difference
 ---
 
-Let's face it. Web Components is the next big thing. Sure, technologies have to be adapted and implemented by browsers first, but [we are on the right track](http://jonrimmer.github.io/are-we-componentized-yet/). Turns out that Chrome even comes with full Web Components support in [version 36](https://twitter.com/addyosmani/status/489490560869490688), which is super awesome.
+Let's face it. Web Components is the next big thing. Sure, technologies have to be adapted and implemented by browsers first, but [we are on the right track](http://jonrimmer.github.io/are-we-componentized-yet/). Turns out that Chrome even comes with full Web Components support in [version 36](https://twitter.com/addyosmani/status/489490560869490688) and also Opera added the last missing bit in [version 23](http://dev.opera.com/blog/opera-23/), which is super awesome. In Firefox there's full support for HTML Templates. Shadow DOM runs with a flag. There's also still a [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=856140) with Custom Elements implementation and [another one](https://bugzilla.mozilla.org/show_bug.cgi?id=877072) with HTML Imports.
 
 However, some browsers take longer to implement these technologies, for others it's not even sure yet if they'll implement them at all. To make Web Components work in all major browsers, we need polyfills to close the gaps. Luckily, the folks over at [Polymer](http://polymer-project.org) have developed such a set of polyfills to make Web Components work in the browsers **today**.
 
