@@ -175,6 +175,10 @@ Try it out and you'll see that `<my-other-button>` has all styles that are defin
 
 Don't forget that in the end, `<core-style>` is also just a web component and therefore just HTML. It can be used in a single HTML Import to make it available across mutiple other web components.
 
-## What else?
+### What else?
 
 `<core-style>` comes with a few more features than just that. It supports bindings to have dynamic stylings. These are also accessible via JavaScript. **You can even nest multiple `<core-style>` definitions** if needed. You can find out more about it [here](http://www.polymer-project.org/docs/elements/core-elements.html#core-style).
+
+## Conclusion
+
+If you think that's totally different from what you've already learned about the web and will change the way we'll structure styles in the future, that's true.
