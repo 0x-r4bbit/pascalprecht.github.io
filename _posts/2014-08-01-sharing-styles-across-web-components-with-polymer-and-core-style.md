@@ -177,7 +177,7 @@ Don't forget that in the end, `<core-style>` is also just a web component and th
 
 ### What else?
 
-`<core-style>` comes with a few more features than just that. It supports bindings to have dynamic stylings. These are also accessible via JavaScript. **You can even nest multiple `<core-style>` definitions** if needed. In addition to that, it's possible to implement a theming for your web components. You can find out more about it [here](http://www.polymer-project.org/docs/elements/core-elements.html#core-style).
+`<core-style>` comes with a few more features than just that. It supports bindings to have dynamic stylings. These are also accessible via JavaScript. **You can even nest multiple `<core-style>` definitions** if needed. In addition to that, it's possible to implement theming for your web components with `<core-style>`. You can find out more about it [here](http://www.polymer-project.org/docs/elements/core-elements.html#core-style).
 
 ## Conclusion
 
