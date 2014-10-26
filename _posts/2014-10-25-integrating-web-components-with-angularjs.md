@@ -45,7 +45,7 @@ SpecialInputProto.createdCallback = function () {
   // setting value property of input element
   template.querySelector('input').value = value;
 
-  var shadowRoot = this.creatShadowRoot();
+  var shadowRoot = this.createShadowRoot();
   shadowRoot.appendChild(template.cloneNode(true));
 };
 
@@ -185,7 +185,7 @@ Taking a look at the APIs that an element comes with, it's pretty much obvious w
 
 Right. We have to create a new directive for that particular event, otherwise we're not able to listen to it "*The Angular Way*". And now imagine a custom element dispatches four different events depending on what happens. We would have to build four different directives for every single custom event. Next, multiply this with the amount of different custom elements you use in your Angular app. I think you get the idea.
 
-So what else can we do to notify Angular? The Angular of today is not able to track changes on custom element properties. It also doesn't see any attribute changes. It seems hopeless... 
+So what else can we do to notify Angular? The Angular of today is not able to track changes on custom element properties. It also doesn't see any attribute changes. It seems hopeless...
 
 **But wait, the internet has this thing called [Mutation Observer](https://developer.mozilla.org/en/docs/Web/API/MutationObserver)!**
 
@@ -209,7 +209,7 @@ In order to trigger the applied mutation observers, we have to make sure, that t
 SpecialInputProto.createdCallback = function () {
 
   // ... creating shadow root etc...
-  
+
   this.shadow.querySelector('input')
   .addEventListener('input', function (e) {
     this.setAttribute('value', e.target.value);
