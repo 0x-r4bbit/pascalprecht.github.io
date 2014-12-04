@@ -60,14 +60,8 @@ Keep cool buddy. Let's get through this one by one. So yea, only using one of fo
 So X-Tag's goal and philosophy is to just use Custom Elements APIs to build web components, because in most cases that's enough. There's no Shadow DOM nor HTML Template required. To have a fair comparison, let's take a look what the element above would look like when implemented with X-Tag:
 
 ```js
-var frag = xtag.createFragment('<p>This is a foo-element.</p>');
-
 xtag.register('foo-element', {
-  lifecycle: {
-    created: function () {
-      this.appendChild(frag.cloneNode(true));
-    }
-  }
+  content: '<p>This is a foo-element.</p>'
 });
 ```
 This basically generates the same result, except that there's no Shadow DOM in that example yet. Let's take a deeper look at what's different when creating components with either one or the other library.
@@ -147,37 +141,25 @@ document.body.appendChild(element);
 Let's take a look what element creation and registration with X-Tag looks like compared to that:
 
 ```js
-var frag = xtag.createFragment('<p>Hello there</p>');
-
 xtag.register('my-element', {
-  lifecycle: {
-    created: function () {
-      this.appendChild(frag.cloneNode(true));
-    }
-  }
+  content: '<p>Hello there</p>'
 });
 ```
 
-X-Tag only provides an imperative way of creating custom elements. The fact that Polymer provides a declarative way using `<polymer-element>` is actually the result of a [proposed `<element>` element](http://www.w3.org/TR/components-intro/#defining-a-custom-element) that has been eventually [removed from the spec](http://lists.w3.org/Archives/Public/public-webapps/2013JulSep/0287.html), while Polymer's `<polymer-element>` stays as it is as polyfill in case `<element>` comes back. So long story short: there's no official declarative API for Custom Elements defined in the spec anymore and it all boils down to the JavaScript API as X-Tag uses it. In the end both, Polymer and X-Tag, use `document.registerElement()` to register custom elements on the DOM.
+X-Tag goes the imparative-only route for defining custom elements. The fact that Polymer provides a declarative way to define custom elements using `<polymer-element>` is actually the result of a [proposed `<element>` element](http://www.w3.org/TR/components-intro/#defining-a-custom-element) that has been eventually [removed from the spec](http://lists.w3.org/Archives/Public/public-webapps/2013JulSep/0287.html), while Polymer's `<polymer-element>` stays as it is as polyfill in case `<element>` comes back. So long story short: there's no official declarative API for Custom Elements defined in the spec anymore and it all boils down to the JavaScript API as X-Tag uses it. In the end both, Polymer and X-Tag, use `document.registerElement()` to register custom elements on the DOM.
 
 <s>As you can see, X-Tag also doesn't have any default template mechanism.</s>
 
-To define templates for your custom elements, X-Tag provides you with a neat `xtag.createFragment()` function that creates a [document fragment](https://developer.mozilla.org/en/docs/Web/API/DocumentFragment), that you can clone into your elements Light DOM. Passing it a function lets you even use multi-line blocks without needing to do any string concatenation:
+To define templates for your custom elements, X-Tag provides you with a neat `content` property on the main `xtag.register()` definition object that creates a [document fragment](https://developer.mozilla.org/en/docs/Web/API/DocumentFragment), that is auto-cloned into your element's Light DOM. Passing it a function lets you even use multi-line blocks without needing to do any string concatenation:
 
 ```js
-var frag = xtag.createFragment(function () {/*
-  <p>Hello there</p>
-  <div>
-    <p>This is a multi-line template</p>
-  </div>
-*/});
-
 xtag.register('my-element', {
-  lifecycle: {
-    created: function () {
-      this.appendChild(frag.cloneNode(true));
-    }
-  }
+  content: function () {/*
+    <p>Hello there</p>
+    <div>
+      <p>This is a multi-line template</p>
+    </div>
+  */}
 });
 ```
 
@@ -185,7 +167,7 @@ xtag.register('my-element', {
 
 X-Tag provides several ways to handle template, but in the end its up to you to decide if you need a template at all and if so, when and how it gets injected. It's kind of the other way around compared to Polymer. As explained [earlier](#polymer-sd-behaviour), Polymer searches for a `<template>` element by default and creates a `shadowRoot` automatically, to clone the templates content into the elements Shadow DOM, but still gives you the chance to prevent that and stick with Light DOM if you want.
 
-X-Tag follows more the bottom-up approach and will not do anything template related, if not explicitly said. So what looks like a drawback at a first glance, is actually just the power of flexibility. And both libraries give you that flexibility.
+X-Tag follows more the bottom-up approach and will not do anything template related, if not explicitly told to. So what looks like a drawback at a first glance, is actually just the power of flexibility. And both libraries give you that flexibility.
 
 If you **want** to use HTML Template with X-Tag, all you have to do is to define your template first:
 
@@ -197,10 +179,11 @@ If you **want** to use HTML Template with X-Tag, all you have to do is to define
 And clone its content later into your elements light DOM:
 
 ```js
+var tpl = document.getElementById('my-template').content;
+
 xtag.register('my-element', {
   lifecycle: {
     created: function () {
-      var tpl = document.getElementById('my-template').content;
       this.appendChild(tpl.cloneNode(true));
     }
   }
