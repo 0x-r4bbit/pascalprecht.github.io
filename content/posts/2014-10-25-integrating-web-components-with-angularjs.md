@@ -1,6 +1,11 @@
 ---
-layout: post
-title: Integrating Web Components with AngularJS
+title: "Integrating Web Components with AngularJS"
+date: 2014-10-25T13:09:47+02:00
+aliases:
+  - "/2014/10/25/integrating-web-components-with-angularjs/"
+slug: "/integrating-web-components-with-angularjs/"
+tags:
+categories:
 ---
 
 Just a few days ago I had the honour to give a talk together with the awesome <a href="http://twitter.com/CarmenPopoviciu">Carmen</a> at the first european <a href="http://angularjs.org">AngularJS</a> conference <a href="http://ngeurope.org">ngEurope</a>. The title of our talk was:

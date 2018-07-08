@@ -1,6 +1,9 @@
 ---
-layout: post
-title: Pretty printing JSON in Vim
+title: "Pretty print JSON in Vim"
+date: 2014-07-10T13:09:47+02:00
+aliases:
+  - "/2014/07/10/pretty-print-json-in-vim/"
+slug: "pretty-print-json-in-vim"
 ---
 
 This post is rather a quick tip than a real article. I think I don't have to give a specific context here, since the use case is clear: You've got some JSON from any resource and you want to inspect it for any reason. And since you're a Vim user, of course you want to do that inside your Vim.

@@ -1,0 +1,77 @@
+h2 {
+  letter-spacing: 0.05em;
+}
+
+p {
+  margin-bottom: 2.3rem;
+  letter-spacing: 0.05em;
+}
+p a:hover {
+  color: #0080ab;
+}
+
+blockquote {
+  padding: 2rem;
+  font-size: 1.2em;
+}
+
+pre, code {
+  background-color: #f6f8fa!important;
+  color: #333;
+  font-weight: 400;
+}
+
+pre {
+  border: 1px #Dfdfdf solid;
+  padding: 1.2rem;
+}
+
+.navigation {
+  margin-top: 2rem;
+}
+/* .navigation ul li a { */
+/*   padding-bottom: 0.2em; */
+/* } */
+/* .navigation ul li a:hover, */
+/* .navigation ul li a:active, */
+/* .navigation ul li a:focus { */
+/*   text-decoration: none; */
+/*   border-bottom: 5px solid #0080ab; */
+/* } */
+.social-links .fab {
+  color: #0080ab;
+}
+
+section.container.post,
+section.container.page {
+  max-width: 90rem;
+}
+
+article h1,
+article h2 {
+  line-height: 3.2rem;
+}
+
+.footer {
+  margin-bottom: 4rem;
+}
+
+.footer p {
+  margin-bottom: 1.5rem;
+}
+
+.end-line {
+  display: flex;
+  margin-top: 6rem;
+}
+.end-line img {
+  height: 110px;
+  margin-right: 2rem;
+}
+
+.end-line p {
+  max-width: 500px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}

@@ -1,6 +1,9 @@
 ---
-layout: post
-title: Why I use Vim
+title: "Why I use Vim"
+date: 2014-03-18T13:09:47+02:00
+aliases:
+  - "/2014/03/18/why-i-use-vim/"
+slug: "why-i-use-vim"
 ---
 
 The first question you get asked by developers of a company when starting at a new gig (after saying hello to everyone and having the first coffee), is probably: <blockquote>So what tools or IDE do you prefer when working with code?</blockquote>
@@ -26,7 +29,7 @@ To make things clear, this post is not about saying that Vim is the answer to ev
 Most people don't really know what Vim is all about. All they know is that it's a text editor sitting in almost every platform and that one can use it to for example editing a file on a remote server. Vim is a lot more. I know, it's not as easy to use as other editors and IDE's, but once you get used to it, you don't want to work without it anymore. <a href="#figure-1" title="Link to figure 1">Figure 1</a> shows the way how I think how steep the learning curve of Vim is.
 
 <figure id="figure-1">
-  <img style="width: 100%" alt="Figure that represents Vim's learning curve" src="/public/vim-learn-curve.jpg">
+  <img alt="Figure that represents Vim's learning curve" src="/images/vim-learn-curve.jpg">
   <figcaption>Figure 1: The Vim learning curve</figcaption>
 </figure>
 
@@ -77,7 +80,7 @@ These are just a few of Vim's built-in text objects. Also, the examples I gave h
 
 Other editors try to bring Vim functionality into their environments. For example the editor Sublime Text has an optional [Vintage Mode](https://www.sublimetext.com/docs/2/vintage.html). The recently launched editor by GitHub [Atom](http://atom.io) has a vim-mode too. However none of these additional modes can really give you what Vim gives you. Apart from the fact that Vim has over 20 years of knowledge inside with loads of built-in features I didn't even know yet, key features like operator-pending key mappings are things that let me keep using Vim.
 
-<img style="width: 100%" src="/public/reimplement-vim.jpg">
+<img src="/images/reimplement-vim.jpg">
 
 There was this great article on [why Atom can't replace Vim](https://medium.com/programming-ideas-tutorial-and-experience/433852f4b4d1) popping up recently, you really should read it.
 
