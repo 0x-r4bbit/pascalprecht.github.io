@@ -24,7 +24,7 @@ Similar to what I've done over at thoughtram, I'd like to write about my learnin
 
 Just recently I've [managed to land my first pull request](https://github.com/ipfs/js-ipfs/pull/1415 'First PR at the js-ipfs project on GitHub') at the [IPFS project](https://ipfs.io/ 'IPFS') - thanks [Alan](https://twitter.com/Alanshaw 'Alan Shaw on Twitter')!🙏 It's a small step but I'm very happy I found a way to get started. You can expect one or the other post about the project and its fundamentals in the upcoming months.
 
-In case you wonder, yes I still like Angular and the community is probably the nicest one I was ever able to be part of. Also, as I'm maintaining MachineLabs, I'm kind of doing Angular more or less on a daily basis. It even looks like [I'll be speaking about Angular](https://ng-be.org/conference-day 'NG-BE conference') at the end of the year as well.
+In case you wonder, yes I still like Angular and the community is probably the nicest one that I have ever been part of. Also, as I'm maintaining MachineLabs, I'm kind of doing Angular more or less on a daily basis. It even looks like [I'll be speaking about Angular](https://ng-be.org/conference-day 'NG-BE conference') at the end of the year as well.
 
 However, I'm going to change my focus a little bit. I don't have any concrete plans nor do I have an idea where this takes me. If the title of this post made you think Pascal is going to announce something big, I'm sorry to disappoint you.
 
