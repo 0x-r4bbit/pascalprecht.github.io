@@ -1,0 +1,4 @@
+This is a Brave Payments publisher verification file.
+
+Domain: pascalprecht.github.io
+Token: 41df1ac5dbbdb01f06fdae09190bb38d68308e0191294ad7c5b0bf855fa827f0
