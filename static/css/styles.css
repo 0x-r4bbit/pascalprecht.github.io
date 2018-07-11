@@ -7,9 +7,12 @@ p {
   letter-spacing: 0.05em;
 }
 
+article ul a,
 p a,
 p a:hover {
   color: #0080ab;
+  font-weight: normal;
+  text-decoration: underline;
 }
 
 blockquote {
@@ -26,6 +29,7 @@ pre, code {
 pre {
   border: 1px #Dfdfdf solid;
   padding: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .navigation {
@@ -52,6 +56,11 @@ section.container.page {
 article h1,
 article h2 {
   line-height: 3.2rem;
+}
+
+article h2,
+article h3 {
+  text-transform: none;
 }
 
 .footer {
