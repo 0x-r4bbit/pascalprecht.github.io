@@ -1,0 +1,57 @@
+==================================================================
+https://keybase.io/pascalprecht
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://pascalprecht.github.io
+  * I am pascalprecht (https://keybase.io/pascalprecht) on keybase.
+  * I have a public key ASDQ0OWA3wX08_2ABLEEL3wqvNZHwBWeoZFfxHH6Ymy3Awo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d0d0e580df05f4f3fd8004b1042f7c2abcd647c0159ea1915fc471fa626cb7030a",
+      "host": "keybase.io",
+      "kid": "0120d0d0e580df05f4f3fd8004b1042f7c2abcd647c0159ea1915fc471fa626cb7030a",
+      "uid": "9b60848f4d108d99569d914979680519",
+      "username": "pascalprecht"
+    },
+    "merkle_root": {
+      "ctime": 1533836254,
+      "hash": "89cc6739bc3ce89e3fe926fbba910aafd4189ab41077179889210fc7fd49faf2dfedbc7fe794c4b9da5d2c0073a06e40204ea6117d7d7bb1b1c3d3467b7359bd",
+      "hash_meta": "13d82aaf7257ebbcb8ed7aaf06c3a43d8df9c9a1928e11b7e9331003ef61c55f",
+      "seqno": 3433831
+    },
+    "service": {
+      "entropy": "cx9PaeWcGyU1No6s7cRirPHu",
+      "hostname": "pascalprecht.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.5.0"
+  },
+  "ctime": 1533836286,
+  "expire_in": 504576000,
+  "prev": "3b614ce3b5bae1889dc49923367b9b5e47b2fd70a86dd654a985b8887ce35bb8",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg0NDlgN8F9PP9gASxBC98KrzWR8AVnqGRX8Rx+mJstwMKp3BheWxvYWTESpcCBsQgO2FM47W64YidxJkjNnubXkey/XCobdZUqYW4iHzjW7jEIH6nrdg70hpG/SyZC8pwFO75YnMJP/2HcBkxJD+MI4RsAgHCo3NpZ8RAe3pPebfgJ6lXCIw7jD77SlaeLdb3IgQSPt/rKa/sOeuODGyn1kw6lWUzp6STMw73cVFEAUR468d7UcqK1lCiA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKtHUUZWXuqcPe+LEIDWyBsNKDkhh0I6DGVve0XxSzdPo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pascalprecht
+
+==================================================================
+
