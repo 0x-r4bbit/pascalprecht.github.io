@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Pascal Precht">
+    <meta name="description" content="Pascal Precht&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://pascalprecht.github.io">
+    <title>
+  Content Identifiers in IPFS · Pascal Precht
+</title>
+
+    <link rel="canonical" href="https://pascalprecht.github.io/posts/content-identifiers-in-ipfs/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://pascalprecht.github.io/css/style.min.css">
+
+    
+
+    
+      <link rel="stylesheet" href="https://pascalprecht.github.io/css/styles.css">
+    
+
+    <link rel="icon" type="image/png" href="https://pascalprecht.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://pascalprecht.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+    <meta name="generator" content="Hugo 0.42.2" />
+  </head>
+
+  <body class="">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://pascalprecht.github.io">
+      Pascal Precht
+    </a>
+    
+    <ul class="navigation-list  float-right ">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://pascalprecht.github.io/posts/">Blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://pascalprecht.github.io/about/">About</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Content Identifiers in IPFS</h1>
+      <h2 class="date">August 6, 2018</h2>
+
+      
+    </header>
+
+    
+
+<p>If you&rsquo;ve used <a href="https://ipfs.io">IPFS</a> or watched one or the other talk or tutorial about it, you know that IPFS generates hashes for the data that&rsquo;s being added to the network. While it might be obvious why that is (IPFS uses those hashes to identify content in the network), it&rsquo;s less obvious how those hashes are being put together.</p>
+
+<p>Sure, there&rsquo;s probably some <a href="https://pascalprecht.github.io/posts/future-proofed-hashes-with-multihash/#so-what-are-hashes-again">hash algorithm applied to data</a>, however it turns out that IPFS goes far beyond that as it uses a combination of <a href="https://multiformats.io/">Multiformat</a> protocols to create its <strong>content identifiers</strong> and keep them future-proof, which I think is quite smart as we&rsquo;ll soon learn.</p>
+
+<p>One of the Multiformat protocols is <a href="https://multiformats.io/multihash/">Multihash</a>. If you haven&rsquo;t heard about it before, I recommend heading over to my post on <a href="https://pascalprecht.github.io/posts/future-proofed-hashes-with-multihash/">future-proof cryptographic hashes</a>, which talks about what the protocol is and why it exists. This post builds on top of it.</p>
+
+<h3 id="the-anatomy-of-cids">The anatomy of CIDs</h3>
+
+<p>Let&rsquo;s start by getting a hash from IPFS for the content &ldquo;Hello World&rdquo;, by piping it through <code>ipfs add</code> (you can also create a file with the content first and call <code>ipfs add</code> on it as well, but I prefer to save this step):</p>
+
+<pre><code>$ echo &quot;Hello World&quot; | ipfs add -n
+$ added QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u
+</code></pre>
+
+<p>The <code>-n</code> option is a cool trick to get a hash from IPFS without actually writing the data to disk. ☝🏼Also notice that IPFS outputs the hash twice. This is because it outputs the hash of the content and the path of the file it resides in. If there&rsquo;s no path, like in our case, it uses the hash as path as well.</p>
+
+<p>Alright, <code>QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u</code> it is. This content identifier, or short CID, for &ldquo;Hello World&rdquo; will always be the same as long as the content stays the same. While this is not too special, let&rsquo;s see what happens if we do the same thing with different content. &ldquo;Hello other world&rdquo; for example, will output <code>QmcaHpwn3bs9DaeLsrk9ZvVxVcKTPXVWiU1XdrGNW9hpi3</code>. Go, try it yourself! 🙂</p>
+
+<p>Noticed something? Right, both hashes start with <code>Qm</code>. This is an important characteristic to be aware of - all hashes generated by IPFS start with <code>Qm</code>. <strong>Spoiler alert</strong>: this will change <a href="https://github.com/ipfs/ipfs/issues/337">once IPFS has moved to CIDv1b32</a> which was not the case at the time of writing this post, but more on that later.</p>
+
+<p>So what&rsquo;s this <code>Qm</code> prefix all about? The first thing we need to know is that there are multiple versions of CIDs. There&rsquo;s CIDv0 and CIDv1. We&rsquo;ll touch on what the exact differences are in a minute, but whenever we see a hash generated by IPFS that starts with <code>Qm</code> we know we&rsquo;re dealing with a CIDv0 hash. This is because a CIDv0 is a <a href="https://multiformats.io/multihash/">Multihash</a> encoded in <a href="https://en.wikipedia.org/wiki/Base58">Base58</a>.</p>
+
+<p>Uhm&hellip; so why exactly do we know it&rsquo;s a CIDv0? Now it&rsquo;s useful to know what a Multihash is (again, if this is new to you read <a href="https://pascalprecht.github.io/posts/future-proofed-hashes-with-multihash/">this post</a> first and come back 🙃)!</p>
+
+<p>Since we know it&rsquo;s a Multihash, we also know that the first two bytes of the CID represent the hash algorithm type that was used to hash the original data, and the length of the data hash respectively, while the rest of the CID represents the actual hash of the data.</p>
+
+<pre><code>&lt;hash-type&gt; - &lt;hash-length&gt; - &lt;hash-digest&gt;
+</code></pre>
+
+<p>We can verify this by transforming our &ldquo;Hello World&rdquo; hash from Base58 to Base16 (or hexadecimal) and comparing the first byte with the <a href="https://github.com/multiformats/multihash/blob/master/hashtable.csv">Multihash Table</a>:</p>
+
+<pre><code>122074410577111096cd817a3faed78630f2245636beded412d3b212a2e09ba593ca
+</code></pre>
+
+<p>or, to make it more clear</p>
+
+<pre><code>12 - 20 - 74410577111096cd817a3faed78630f2245636beded412d3b212a2e09ba593ca
+&lt;hash-type&gt; - &lt;hash-length&gt; - &lt;hash-digest&gt;
+</code></pre>
+
+<p>The first byte <code>0x12</code> represents <code>sha2-256</code> in the hash table, which means the hash digest is a SHA-256 hash! But it turns out this is not the whole story. If we try to verify this and use a SHA2-256 function to get a hash for &ldquo;Hello World&rdquo;, we&rsquo;ll notice it doesn&rsquo;t really add up&hellip;</p>
+
+<pre><code>$ echo Hello World | shasum -a 256
+$ d2a84f4b8b650937ec8f73cd8be2c74add5a911ba64df27458ed8229da804a26
+</code></pre>
+
+<p>We get <code>d2a84f4b8b650937ec8f73cd8be2c74add5a911ba64df27458ed8229da804a26</code> instead of <code>74410577111096cd817a3faed78630f2245636beded412d3b212a2e09ba593ca</code>&hellip; so what&rsquo;s going on there?</p>
+
+<p>After a bit of research I&rsquo;ve learned that IPFS is doing a little bit more work than just hashing the data and creating a multihash out of that. <a href="https://twitter.com/daviddias">David Dias</a>, team lead and researcher of the IPFS project, puts it quite nicely in <a href="https://stackoverflow.com/questions/40998621/how-to-create-an-ipfs-compatible-multihash">this StackOverflow question</a>:</p>
+
+<ul>
+<li><strong>IPFS chunks the given file into 256 KiB pieces</strong> - This is not really the case for us right now as we deal with very little data.</li>
+<li><strong>Each chunk goes into a so called &ldquo;DAG&rdquo;</strong> (<a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph</a>) node inside a so called &ldquo;Unixfs protobuf&rdquo;. More on that in a second.</li>
+<li><strong>Another dag is created</strong> with links to all the chunks.</li>
+</ul>
+
+<p>&hellip;it does what?!</p>
+
+<p>Yea, that was my reaction too. Lots of words in there that need to be demystified. I&rsquo;ll go into more details on dags and protocol buffers in future articles, but to keep it very simple for now, IPFS basically serializes some metadata (is it a file? Is it a directory? What&rsquo;s the size in bytes?) along with our original data. It then serializes <strong>that</strong> with more metadata (what other data is our data linking to?) and eventually multihashes <strong>that</strong> using <code>sha2-256</code> (which just happens to be the default hashing algorithm at the time of writing this post) and puts that in the resulting CID we see on the screen. The APIs mentioned <a href="https://github.com/ipfs/faq/issues/208#issuecomment-265221120">here</a> can be used to play with that stuff.</p>
+
+<p>So in order to get the hash digest that resides in the CID, we have to get that serialized data and pipe that through <code>sha2-256</code>. IPFS&rsquo; <code>block</code> API lets us do exactly that. First let&rsquo;s inspect that serialized data:</p>
+
+<pre><code>$ ipfs block get QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u | sed -n l
+$ $
+$ \022\b\002\022\fHello World$
+$ \030\f$
+</code></pre>
+
+<p>This already shows us that there&rsquo;s more than just the &ldquo;Hello World\n&rdquo; data. Now, let&rsquo;s pipe this through <code>sha2-256</code> and see what happens:</p>
+
+<pre><code>$ ipfs block get QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u | shasum -a 256
+$ 74410577111096cd817a3faed78630f2245636beded412d3b212a2e09ba593ca
+</code></pre>
+
+<p>There it is! At this point I&rsquo;d like to make a shout-out to <a href="https://twitter.com/_alanshaw">Alan</a> and <a href="https://stackoverflow.com/users/553092/steven">Steven</a> who helped me figuring out this <a href="https://stackoverflow.com/questions/51655352/how-recreate-a-hash-digest-of-a-multihash-in-ipfs/51658540#51658540">last bit</a>.</p>
+
+<p>Also, if this was a bit hard to follow, no problem. It&rsquo;s not required to know what&rsquo;s going on behind the scenes to use the tool. Just keep an eye on future articles here that will take a closer look at these things 🙃.</p>
+
+<p>Alright, now that we&rsquo;ve got a better idea of where those <code>Qm*</code> hashes come from, let&rsquo;s quickly talk about how CIDv0 differs from CIDv1.</p>
+
+<h3 id="differences-in-v1">Differences in v1</h3>
+
+<p>Content identifiers version 1 encode even more information than its predecessor in a very compact format. While CIDv0 encodes hash type, hash length and hash digest, a CIDv1 can be represented as:</p>
+
+<pre><code>&lt;mb&gt;&lt;version&gt;&lt;mc&gt;&lt;mh&gt;
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><code>mb</code> is a <a href="https://github.com/multiformats/multibase">Multibase</a> code - very similar to multihashes, there&rsquo;s multibase codes that encode the base encoding type (base16, base32, base58, etc) and the base encoded data itself, into a single string.</li>
+<li><code>version</code> is the CID version in use - this makes CIDs upgradable.</li>
+<li><code>mc</code> is a <a href="https://github.com/multiformats/multicodec">Multicodec</a> type - similar to multihashes and multibases, just for codec types.</li>
+<li><code>mh</code> is a Multihash - basically what we&rsquo;re getting in CIDv0.</li>
+</ul>
+
+<p>It turns out that these are very powerful properties. For example, since the base encoding type is part of the CID, one can easily transform CIDs into a base encoding that creates shorter hashes.</p>
+
+<p>If you want to know what base encoding you&rsquo;re dealing with, take a look at the <a href="https://github.com/multiformats/multibase/blob/master/multibase.csv">Multibase Table</a> provided by the spec. Can you guess what encoding this hash uses? 🙂</p>
+
+<pre><code>MTXVsdGliYXNlIGlzIGF3ZXNvbWUhIFxvLw==
+</code></pre>
+
+<h3 id="moving-to-base32">Moving to Base32</h3>
+
+<p>At the time of writing this post there was an <a href="https://github.com/ipfs/ipfs/issues/337">ongoing effort</a> to migrate CIDs to CIDv1 and with default base32 encoding (CIDv1b32), while still being backwards compatible with CIDv0. According to the linked issue, this is due to security considerations with sub domains, an <a href="https://github.com/mozilla/libdweb/issues/2">experimental protocol handler API</a> and to support legacy URIs.</p>
+
+<p>This probably raises even more questions, but for now we stop here and let everything sink in we&rsquo;ve just learned. Here are some of the most important links:</p>
+
+<ul>
+<li><a href="https://multiformats.io/">Multiformats</a> protocol</li>
+<li><a href="https://github.com/ipfs/ipfs/issues/337">CIDv0 =&gt; CIDv1b32 GitHub issue</a></li>
+<li><a href="https://stackoverflow.com/questions/40998621/how-to-create-an-ipfs-compatible-multihash">&ldquo;How to create an IPFS compatible multihash&rdquo; on StackOverflow</a></li>
+<li><a href="https://stackoverflow.com/questions/51655352/how-recreate-a-hash-digest-of-a-multihash-in-ipfs/51658540#51658540">&ldquo;How to recreate the hash digest of a multihash&rdquo; on StackOverflow</a></li>
+<li><a href="https://github.com/ipld/cid">IPLD CID Spec</a></li>
+</ul>
+
+<p>Make sure to check this blog for regular updates as there are more posts planned on everything decentralization, IPFS and more!</p>
+
+  </article>
+
+  <div class="end-line">
+    <img src="https://pbs.twimg.com/profile_images/993785060733194241/p3oAIMDP_400x400.jpg" alt="Picture of Pascal">
+    <p><strong>Did you like the post?</strong><br> Cool, took me quite some time to write this down. Hugs <a href="https://twitter.com/PascalPrecht" title="Pascal on Twitter">on Twitter</a> or a <strong>tip sent to my Ether address below</strong> are appreciated! 🙏</p>
+  </div>
+
+  
+
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    <p><i class="fab fa-ethereum"></i> 0x6f490165ddd8d604b52db9d9bf9b63ae997dc11c</p>
+     © 2014-2018  Made without love.
+    </section>
+</footer>
+
+    </main>
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-34513648-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

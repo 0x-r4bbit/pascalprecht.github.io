@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pascal Precht</title>
+    <link>https://pascalprecht.github.io/</link>
+    <description>Recent content on Pascal Precht</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 06 Aug 2018 09:34:56 +0200</lastBuildDate>
+    
+	<atom:link href="https://pascalprecht.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Content Identifiers in IPFS</title>
+      <link>https://pascalprecht.github.io/posts/content-identifiers-in-ipfs/</link>
+      <pubDate>Mon, 06 Aug 2018 09:34:56 +0200</pubDate>
+      
+      <guid>https://pascalprecht.github.io/posts/content-identifiers-in-ipfs/</guid>
+      <description>If you&amp;rsquo;ve used IPFS or watched one or the other talk or tutorial about it, you know that IPFS generates hashes for the data that&amp;rsquo;s being added to the network. While it might be obvious why that is (IPFS uses those hashes to identify content in the network), it&amp;rsquo;s less obvious how those hashes are being put together.
+Sure, there&amp;rsquo;s probably some hash algorithm applied to data, however it turns out that IPFS goes far beyond that as it uses a combination of Multiformat protocols to create its content identifiers and keep them future-proof, which I think is quite smart as we&amp;rsquo;ll soon learn.</description>
+    </item>
+    
+    <item>
+      <title>On future-proof cryptographic hashes</title>
+      <link>https://pascalprecht.github.io/posts/future-proofed-hashes-with-multihash/</link>
+      <pubDate>Wed, 11 Jul 2018 09:00:20 +0200</pubDate>
+      
+      <guid>https://pascalprecht.github.io/posts/future-proofed-hashes-with-multihash/</guid>
+      <description>Let&amp;rsquo;s talk about hashes.
+As mentioned in the resurrecting post about starting new, I&amp;rsquo;d like to document my learnings as I&amp;rsquo;m diving into projects that catch my attention in the decentralization space, such as IPFS. If you aren&amp;rsquo;t familiar with IPFS or haven&amp;rsquo;t heard of it, it&amp;rsquo;s basically a stack of (networking) protocols that enables a fully distributed file storage system to creates a faster, safer and more reliable web.</description>
+    </item>
+    
+    <item>
+      <title>Guess it&#39;s time for a new start</title>
+      <link>https://pascalprecht.github.io/posts/a-new-start/</link>
+      <pubDate>Mon, 09 Jul 2018 08:51:44 +0200</pubDate>
+      
+      <guid>https://pascalprecht.github.io/posts/a-new-start/</guid>
+      <description>Wait&amp;hellip; what? It&amp;rsquo;s been four years since my last post here on my blog? How did that happen&amp;hellip; ah right, I spent the past years building thoughtram with my buddy Christoph and taught quite a few people how to use Git and how to build web applications with Angular.
+A lot of things have happened since then. While it was pretty quiet here, I wrote over 60 articles on the thoughtram blog (some of them you might have read, if you&amp;rsquo;re into Angular).</description>
+    </item>
+    
+    <item>
+      <title>Integrating Web Components with AngularJS</title>
+      <link>https://pascalprecht.github.io/posts/integrating-web-components-with-angularjs/</link>
+      <pubDate>Sat, 25 Oct 2014 13:09:47 +0200</pubDate>
+      
+      <guid>https://pascalprecht.github.io/posts/integrating-web-components-with-angularjs/</guid>
+      <description>Just a few days ago I had the honour to give a talk together with the awesome Carmen at the first european AngularJS conference ngEurope. The title of our talk was:
+&amp;ldquo;Don&amp;rsquo;t stop thinking about tomorrow! - AngularJS and Web Components&amp;rdquo;
+We talked about what Web Components are and if and how we can integrate them with the AngularJS of today, since this is a question that seems to be asked quiet often.</description>
+    </item>
+    
+    <item>
+      <title>Pretty print JSON in Vim</title>
+      <link>https://pascalprecht.github.io/posts/pretty-print-json-in-vim/</link>
+      <pubDate>Thu, 10 Jul 2014 13:09:47 +0200</pubDate>
+      
+      <guid>https://pascalprecht.github.io/posts/pretty-print-json-in-vim/</guid>
+      <description>This post is rather a quick tip than a real article. I think I don&amp;rsquo;t have to give a specific context here, since the use case is clear: You&amp;rsquo;ve got some JSON from any resource and you want to inspect it for any reason. And since you&amp;rsquo;re a Vim user, of course you want to do that inside your Vim.
+Great. So now we have some JSON and we paste it into our Vim and because our mentioned resource doesn&amp;rsquo;t return pretty printed JSON, all we see is a big unreadable junk of JSON data in our buffer.</description>
+    </item>
+    
+    <item>
+      <title>Why I use Vim</title>
+      <link>https://pascalprecht.github.io/posts/why-i-use-vim/</link>
+      <pubDate>Tue, 18 Mar 2014 13:09:47 +0200</pubDate>
+      
+      <guid>https://pascalprecht.github.io/posts/why-i-use-vim/</guid>
+      <description>The first question you get asked by developers of a company when starting at a new gig (after saying hello to everyone and having the first coffee), is probably: So what tools or IDE do you prefer when working with code?
+Right? Developers should always be interested and curious about what other developers do to make their daily work as pleasant as possible. They may use tools, editors or IDEs you&amp;rsquo;ve never heard of and it probably turns out that these tools give you what you&amp;rsquo;ve always been waiting for.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://pascalprecht.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pascalprecht.github.io/about/</guid>
+      <description>Hi there.
+I&amp;rsquo;m a Software Engineer. I strive to be a decent person and I like open source.
+I created thoughtram, a software training company that focuses on high-quality content and fun, and MachineLabs, a developer platform that makes it easy for you to get started with Machine Learning.
+You can find me on Twitter, GitHub, StackOverflow&amp;hellip; pretty much everywhere as @PascalPrecht. All of my profiles and identities including my public key are verified on keybase.</description>
+    </item>
+    
+  </channel>
+</rss>

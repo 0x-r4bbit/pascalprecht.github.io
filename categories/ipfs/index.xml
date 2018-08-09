@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ipfs on Pascal Precht</title>
+    <link>https://pascalprecht.github.io/categories/ipfs/</link>
+    <description>Recent content in Ipfs on Pascal Precht</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 06 Aug 2018 09:34:56 +0200</lastBuildDate>
+    
+	<atom:link href="https://pascalprecht.github.io/categories/ipfs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Content Identifiers in IPFS</title>
+      <link>https://pascalprecht.github.io/posts/content-identifiers-in-ipfs/</link>
+      <pubDate>Mon, 06 Aug 2018 09:34:56 +0200</pubDate>
+      
+      <guid>https://pascalprecht.github.io/posts/content-identifiers-in-ipfs/</guid>
+      <description>If you&amp;rsquo;ve used IPFS or watched one or the other talk or tutorial about it, you know that IPFS generates hashes for the data that&amp;rsquo;s being added to the network. While it might be obvious why that is (IPFS uses those hashes to identify content in the network), it&amp;rsquo;s less obvious how those hashes are being put together.
+Sure, there&amp;rsquo;s probably some hash algorithm applied to data, however it turns out that IPFS goes far beyond that as it uses a combination of Multiformat protocols to create its content identifiers and keep them future-proof, which I think is quite smart as we&amp;rsquo;ll soon learn.</description>
+    </item>
+    
+  </channel>
+</rss>
