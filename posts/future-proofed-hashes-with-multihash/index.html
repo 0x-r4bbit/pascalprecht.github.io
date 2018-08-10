@@ -194,7 +194,7 @@ blake2:a96953281f3fd944a3206219fad61a40b992611b7580f1fa091935db3f7ca13d
 
 <p>We&rsquo;ve learned that the first byte identifies the hash function type. According to the <a href="https://github.com/multiformats/multihash/blob/master/hashtable.csv" title="Multihash table">Multihash table</a>, that would be <code>sha2-256</code> (take a look yourself, it&rsquo;s in the seventh row).</p>
 
-<p>Next up, the digest length (also in bytes). <code>0x20</code> is <code>32</code> in decimal, so at this point we already know the following hash value is 32 bytes (128 bits) long.</p>
+<p>Next up, the digest length (also in bytes). <code>0x20</code> is <code>32</code> in decimal, so at this point we already know the following hash value is 32 bytes (256 bits) long.</p>
 
 <p>This is an important information to have. Remember the scenario where Git would switch from SHA-1 to SHA-256 ? Many apps and systems that work with Git hashes expect them to be 160 bit long. If Git used something like Multihash, apps could simply read out the length of the expected hash and keep it therefore variable.</p>
 
