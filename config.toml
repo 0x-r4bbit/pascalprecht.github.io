@@ -47,6 +47,11 @@ googleAnalytics = 'UA-34513648-1'
     icon = "stack-overflow"
     weight = 3
     url = "https://stackoverflow.com/users/1531806/pascal-precht?tab=profile"
+[[params.social]]
+    name = "Keybase"
+    icon = "keybase"
+    weight = 4
+    url = "https://keybase.io/pascalprecht"
 
 # Menu links
 [[menu.main]]
