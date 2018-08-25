@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Pascal Precht">
+    <meta name="description" content="Pascal Precht&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://pascalprecht.github.io">
+    <title>
+  On future-proof cryptographic hashes · Pascal Precht
+</title>
+
+    <link rel="canonical" href="https://pascalprecht.github.io/posts/future-proofed-hashes-with-multihash/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://pascalprecht.github.io/css/style.min.css">
+
+    
+
+    
+      <link rel="stylesheet" href="https://pascalprecht.github.io/css/styles.css">
+    
+
+    <link rel="icon" type="image/png" href="https://pascalprecht.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://pascalprecht.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+    <meta name="generator" content="Hugo 0.42.2" />
+  </head>
+
+  <body class="">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://pascalprecht.github.io">
+      Pascal Precht
+    </a>
+    
+    <ul class="navigation-list  float-right ">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://pascalprecht.github.io/posts/">Blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://pascalprecht.github.io/about/">About</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">On future-proof cryptographic hashes</h1>
+      <h2 class="date">July 11, 2018</h2>
+
+      
+    </header>
+
+    
+
+<p>Let&rsquo;s talk about hashes.</p>
+
+<p>As mentioned in the resurrecting <a href="https://pascalprecht.github.io/posts/a-new-start/">post about starting new</a>, I&rsquo;d like to document my learnings as I&rsquo;m diving into projects that catch my attention in the decentralization space, such as <a href="https://ipfs.io" title="IPFS website">IPFS</a>. If you aren&rsquo;t familiar with IPFS or haven&rsquo;t heard of it, it&rsquo;s basically a stack of (networking) protocols that enables a fully distributed file storage system to creates a faster, safer and more reliable web.</p>
+
+<p>Hashes play a big role in IPFS as they are used to address content in a distributed network, similar to how <a href="https://git-scm.com" title="Git website">Git</a> uses hashes to address commits, trees and binary objects inside a repository (yep, you probably use them on a daily basis, without noticing).</p>
+
+<p>When a system relies on cryptographic hashes as fundamental building blocks, it&rsquo;s pretty important to have an update strategy in mind in case the hash algorithms used are considered weak or insecure at some point. In this post I&rsquo;d like to explore <strong>how the IPFS project takes advantage of &ldquo;Multihashes&rdquo;</strong> to ensure hashes are upgradable and can co-exist in the same application.</p>
+
+<h3 id="so-what-are-hashes-again">So&hellip; what are hashes again?</h3>
+
+<p>Right, let&rsquo;s get this out of our way quickly. A hash is actually less scary than it sounds. It is really just a function that takes some arbitrary input and returns a fixed-size alphanumeric string. What that alphanumeric string looks like depends on the given hash algorithm.</p>
+
+<p>Let&rsquo;s make up a simple hash function and say we have a message &ldquo;abc&rdquo; which is our input. Our custom hash function&rsquo;s algorithm takes every character of the input message and moves it forward three letters in the alphabet. This will result in a hash digest &ldquo;def&rdquo;.</p>
+
+<pre><code>HASH('abc') // 'def'
+</code></pre>
+
+<p>There it is. A hash.</p>
+
+<p>Now, if we look at some real world hash functions, they do exactly the same thing (just that the algorithm is more complex obviously). Git for example uses SHA-1, which produces a 160 bit hash, <a href="https://crypto.stackexchange.com/questions/34995/why-do-we-use-hex-output-for-hash-functions" title="Why do we use hex output for hash functions?">usually rendered as a hexadecimal number</a>, 40 digits long. It hashes raw content (binary data), tree objects and commits.</p>
+
+<p>If you have Git installed on your machine, try it yourself! Simply run the following command:</p>
+
+<pre><code>$ echo &quot;abc&quot; | git hash-object --stdin
+</code></pre>
+
+<p>The returned digest is <code>8baef1b4abc478178b004d62031cf7fe6db6f903</code>. And yes, a hash algorithm will always return the same hash for a given input. That&rsquo;s how you can verify integrity when you receive data from a sender. However, it is impossible to derive the input from a hash. Super important characteristic.</p>
+
+<p>To be accurate here, it turns out that Git doesn&rsquo;t actually hash the raw input, but prepends the input with <code>blob</code> followed by the size of the content before hashing. This isn&rsquo;t important right now, but just in case you&rsquo;re trying to verify the digest with e.g. OpenSSL&rsquo;s SHA-1 implementation, you&rsquo;ll notice it&rsquo;ll return a different hash from &lsquo;abc&rsquo;.</p>
+
+<p>Also, if you <strong>do</strong> want to dig deeper (like me), check out <a href="https://stackoverflow.com/questions/552659/how-to-assign-a-git-sha1s-to-a-file-without-git/552725#552725" title="How Git calculates the SHA1 for a file">this StackOverflow answer</a>.</p>
+
+<p>The bottom line is:</p>
+
+<ul>
+<li>Hashes are the result of an algorithm transforming an input to a digest</li>
+<li>Algorithms return a fixed length (e.g. SHA1 returns 160 bit hashes)</li>
+<li>They always return the same hash value for a given input</li>
+<li>It is (or should be) impossible to derive the input from a hash</li>
+</ul>
+
+<p>Okay, coming back to this &ldquo;Multihashes&rdquo; thing&hellip;</p>
+
+<h3 id="the-problem-with-hashes">The problem with hashes</h3>
+
+<p>Hashes are really great. Due to their characteristics, we can use them to verify the integrity of content and data, plus, they can be very compact as well. Unfortunately though, sometimes they turn out to be not secure or strong enough (I&rsquo;m looking at you, <a href="https://en.wikipedia.org/wiki/MD5 'MD5 on Wikipedia">MD5</a>!), or attackers manage to break them. Not something that happens all the time, but it happened.</p>
+
+<p>Imagine a simple, but common scenario in which user passwords are stored in some database. Obviously, we don&rsquo;t want to store passwords in plain text, that&rsquo;d be a disaster for many different reasons I don&rsquo;t think I have to mention here. Perfect use case for hashes right? So let&rsquo;s go ahead and assume we store those passwords as MD5 hashes. Wonderful, many problems solved with a simple fix.</p>
+
+<p>Now let&rsquo;s say, <em>cough</em> hypothetically <em>cough</em> 🙃, the next day, <a href="https://security.stackexchange.com/questions/19906/is-md5-considered-insecure" title="Is MD5 considered insecure?">MD5 is considered insecure</a>. What are are going to do? Well, we definitely have to upgrade our hash algorithm to something more secure. That turns out to be a challenge though, because we happen to deal with a large, maybe distributed, system and can only upgrade over time.</p>
+
+<p>We need to find a way to slowly (but as fast as possible) upgrade to a different hash algorithm, while keeping the existing system in tact.</p>
+
+<p>Another problem that shouldn&rsquo;t get less attention, is that existing systems often rely on APIs that simply assume a certain type of hash and its length. Think about how many Git repositories are out there with every single object being a 160 bit hexadecimal hash (40 digits). Imagine what happens when Git switches to SHA-2, a 256 bit hash and how many tools and applications would break.</p>
+
+<p>Turns out problems like those can be avoid by introducing a versioning system.</p>
+
+<h3 id="versioned-hashes">Versioned hashes</h3>
+
+<p>The idea is quite simple: introduce some version as part of the hash so the system can easily figure out what hash it is dealing with.</p>
+
+<p>Let&rsquo;s take the &lsquo;abc&rsquo; hash we calculated with Git earlier:</p>
+
+<pre><code>8baef1b4abc478178b004d62031cf7fe6db6f903
+</code></pre>
+
+<p>If this is a password hash and we&rsquo;d have to verify whether it is the correct password or not, we&rsquo;d just compare this computed hash with the one in our database. However, as mentioned earlier, we want to migrate to a different hash algorithm without breaking the system. The same input as SHA-256 for example, looks quite different:</p>
+
+<pre><code>BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD
+</code></pre>
+
+<p>In order to know up front that we&rsquo;re in fact dealing with a different hash version, we ca introduce a version number like this:</p>
+
+<pre><code>1:BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD
+</code></pre>
+
+<p>This also works great for systems that already use <em>unversioned</em> hashes. Any hash without a colon must have been created before the version change. Any hash with a colon and version number can be handled in a respective way (stripping out the first two bytes (<code>1:</code>) and assume the hash is a SHA-256 hash in this case).</p>
+
+<p>This solution can be scaled up and down in different ways depending on our needs. For example, if we&rsquo;re in a scenario where we happen to deal with more than two hash types, we could introduce versions for each type like this:</p>
+
+<pre><code>sha1:0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33
+sha256:2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae
+blake2:a96953281f3fd944a3206219fad61a40b992611b7580f1fa091935db3f7ca13d
+</code></pre>
+
+<p>In fact, this seems to be <a href="https://stackoverflow.com/questions/3955223/password-hashing-how-to-upgrade">the way to go</a>.</p>
+
+<p>We can do better though. While the above is a decent way to approach this challenge, there are still some things can turn into problems:</p>
+
+<ul>
+<li>One obvious characteristic is that the version type might not be compatible with the rest of the hash type. For example <code>s</code> is not a valid hexadecimal digit. However, Most systems transfer hashes in hex (or base32, base64 etc). So there&rsquo;s added complexity when building apps on top of those schemes.</li>
+<li>In case millions or billions of hashes have to be stored, long version types like <code>blake2</code> might have a considerable impact in terms of byte costs. A shorter streamlined version syntax may be better here.</li>
+</ul>
+
+<p>Okay, now it&rsquo;s really time to dive into this Multihash thing.</p>
+
+<h3 id="multihashes">Multihashes</h3>
+
+<p>This is where Multihashes come into play. <a href="https://multiformats.io/multihash/" title="Multihash website">Multihash</a> is a protocol (used by IPFS) for differentiating outputs from various well-established hash functions. It works very similar to what we&rsquo;ve just done, just that it adds a little bit of extra information in a smart way.</p>
+
+<p>A Multihash has the following pattern:</p>
+
+<pre><code>&lt;hash-func-type&gt;&lt;digest-length&gt;&lt;digest-value&gt;
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li>the <code>&lt;hash-func-type&gt;</code> describes the hash function used - there&rsquo;s a <a href="https://github.com/multiformats/multihash/blob/master/hashtable.csv" title="Multihash table">hash table</a> to see how the codes are mapped</li>
+<li>the <code>&lt;digest-length&gt;</code> describes the length of the <code>&lt;digest-value&gt;</code> in bytes</li>
+<li>the <code>&lt;digest-value&gt;</code> is the actual hash value we&rsquo;re interested in</li>
+</ul>
+
+<p>Okay, let&rsquo;s take the following Multihash as an example and try to demystify it</p>
+
+<pre><code>122041dd7b6443542e75701aa98a0c235951a28a0d851b11564d20022ab11d2589a8
+</code></pre>
+
+<p><strong>Notice</strong>: In hexadecimal code, two digits are equal to one byte. In other words, the first two digits, <code>12</code>, can be translated to <code>0001 0010</code>. That&rsquo;s why a 160 bit hash in hex code is a 40 digit number. Also, usually hex codes are prepended with <code>0x</code> to indicate that it&rsquo;s a hex code. In this case <code>0x12</code> and <code>12</code> are the same thing.</p>
+
+<p>We&rsquo;ve learned that the first byte identifies the hash function type. According to the <a href="https://github.com/multiformats/multihash/blob/master/hashtable.csv" title="Multihash table">Multihash table</a>, that would be <code>sha2-256</code> (take a look yourself, it&rsquo;s in the seventh row).</p>
+
+<p>Next up, the digest length (also in bytes). <code>0x20</code> is <code>32</code> in decimal, so at this point we already know the following hash value is 32 bytes (128 bits) long.</p>
+
+<p>This is an important information to have. Remember the scenario where Git would switch from SHA-1 to SHA-256 ? Many apps and systems that work with Git hashes expect them to be 160 bit long. If Git used something like Multihash, apps could simply read out the length of the expected hash and keep it therefore variable.</p>
+
+<p>Last but not least, the actual hash digest we&rsquo;re dealing with <code>41dd7b6443542e75701aa98a0c235951a28a0d851b11564d20022ab11d2589a8</code>.</p>
+
+<p>Pretty cool, we basically have a single hash that is <strong>completely self-describing</strong> and still addressable as it keeps the characteristics of any other cryptographic hash.</p>
+
+<p>Using the Multihash protocol these days is very easy as well. There are <a href="https://multiformats.io/multihash/#implementations" title="Multihash implementations">implementations for several languages</a> like Go, Java, Rust, JavaScript and more! If you want to learn about Multihashes and the IPFS protocol stack (yes, there&rsquo;s so much more), here are some resources:</p>
+
+<ul>
+<li><a href="https://github.com/jbenet/random-ideas/issues/1" title="Initial RFC for Multihash">RFC: Future-proofed cryptographic hash values by Juan Benet</a></li>
+<li><a href="https://www.youtube.com/watch?v=Bqs_LzBjQyk" title="Talk about IPLD">Talk: Enter the Merkle Forest by Juan Benet</a></li>
+<li><a href="https://multiformats.io/multihash/" title="Multihash website">Multihash Website</a></li>
+</ul>
+
+<p>Happy multihashing!</p>
+
+  </article>
+
+  <div class="end-line">
+    <img src="https://pbs.twimg.com/profile_images/993785060733194241/p3oAIMDP_400x400.jpg" alt="Picture of Pascal">
+    <p><strong>Did you like the post?</strong><br> Cool, took me quite some time to write this down. Hugs <a href="https://twitter.com/PascalPrecht" title="Pascal on Twitter">on Twitter</a> or a <strong>tip sent to my Ether address below</strong> are appreciated! 🙏</p>
+  </div>
+
+  
+
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    <p><i class="fab fa-ethereum"></i> 0x6f490165ddd8d604b52db9d9bf9b63ae997dc11c</p>
+     © 2014-2018  Made without love.
+    </section>
+</footer>
+
+    </main>
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-34513648-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

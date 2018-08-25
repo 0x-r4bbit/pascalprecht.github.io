@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/a-productivity-manifesto/</loc>
+    <lastmod>2018-08-25T14:00:09+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/content-identifiers-in-ipfs/</loc>
+    <lastmod>2018-08-06T09:34:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/future-proofed-hashes-with-multihash/</loc>
+    <lastmod>2018-07-11T09:00:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/a-new-start/</loc>
+    <lastmod>2018-07-09T08:51:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/integrating-web-components-with-angularjs/</loc>
+    <lastmod>2014-10-25T13:09:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/pretty-print-json-in-vim/</loc>
+    <lastmod>2014-07-10T13:09:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/why-i-use-vim/</loc>
+    <lastmod>2014-03-18T13:09:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/categories/cryptography/</loc>
+    <lastmod>2018-07-11T09:00:20+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/categories/ipfs/</loc>
+    <lastmod>2018-08-06T09:34:56+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/</loc>
+    <lastmod>2018-08-25T14:00:09+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/posts/</loc>
+    <lastmod>2018-08-25T14:00:09+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/categories/productivity/</loc>
+    <lastmod>2018-08-25T14:00:09+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pascalprecht.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
