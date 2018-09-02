@@ -130,7 +130,7 @@ Okay, let's take the following Multihash as an example and try to demystify it
 
 We've learned that the first byte identifies the hash function type. According to the [Multihash table](https://github.com/multiformats/multihash/blob/master/hashtable.csv 'Multihash table'), that would be `sha2-256` (take a look yourself, it's in the seventh row).
 
-Next up, the digest length (also in bytes). `0x20` is `32` in decimal, so at this point we already know the following hash value is 32 bytes (128 bits) long.
+Next up, the digest length (also in bytes). `0x20` is `32` in decimal, so at this point we already know the following hash value is 32 bytes (256 bits) long.
 
 This is an important information to have. Remember the scenario where Git would switch from SHA-1 to SHA-256 ? Many apps and systems that work with Git hashes expect them to be 160 bit long. If Git used something like Multihash, apps could simply read out the length of the expected hash and keep it therefore variable.
 
