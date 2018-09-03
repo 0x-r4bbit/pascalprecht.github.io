@@ -63,6 +63,6 @@ It's okay to say no. We don't have to be available all the time. We don't have t
 
 **That's it**. I know, those are very few and very simple rules, however everything else that claims to make me more productive can be easily derived from those. As mentioned earlier, I'll keep this updated and add new rules as I try things out.
 
-☝**One last tip on how to be productive** ☝
+☝**One last tip on how to be productive**☝
 
 Stop googling for how to be productive. Seriously.
