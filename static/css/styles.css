@@ -1,17 +1,10 @@
-body {
-  color: #222;
-  font-family: "ISO", monospace;
-}
-
 h2 {
   letter-spacing: 0.05em;
 }
 
 p {
-  font-size: 2rem;
   margin-bottom: 2.3rem;
   letter-spacing: 0.05em;
-  line-height: 1.6;
 }
 
 article ul a,
@@ -42,10 +35,6 @@ pre {
 .navigation {
   margin-top: 2rem;
 }
-.navigation a {
-  font-size: 2rem;
-  font-weight: normal;
-}
 .social-links .fab {
   color: #0080ab;
 }
@@ -53,10 +42,6 @@ pre {
 section.container.post,
 section.container.page {
   max-width: 90rem;
-}
-
-article h1 {
-  font-size: 3.5rem;
 }
 
 article h1,
@@ -73,21 +58,12 @@ article li {
   margin-top: 1rem;
 }
 
-.list ul li {
-  font-size: 2rem;
-  line-height: 1.6;
-}
-.list ul li span {
-  width: 24rem;
-}
-
 .footer {
   margin-bottom: 4rem;
 }
 
 .footer p {
   margin-bottom: 1.5rem;
-  font-size: 1.7rem;
 }
 
 .end-line {
