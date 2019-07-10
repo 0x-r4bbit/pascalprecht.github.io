@@ -18,6 +18,6 @@ Sometimes I speak at conferences too. Here are [some of my talks](https://www.yo
 
 #### Did you know...?
 
-Oh yea, writing takes quite a lot of time, I'm glad you ask. Yes, I do appreciate high-fives on [Twitter](https://twitter.com/PascalPrecht 'Pascal on Twitter') and **[the tip you want to send me using Brave](https://brave.com/pas588)** so I can buy me a coffee or two. 🙏
+Oh yea, writing takes quite a lot of time, I'm glad you ask. Yes, I do appreciate high-fives on [Twitter](https://twitter.com/PascalPrecht 'Pascal on Twitter') and **the tip you want to send to my Ether address below*** so I can buy me a coffee or two. 🙏
 
-<small>* Or send a tip to my Ether address below.</small>
+<small>* Or use <a href="https://brave.com/">Brave</a> and support pascalprecht.github.io.</small>
