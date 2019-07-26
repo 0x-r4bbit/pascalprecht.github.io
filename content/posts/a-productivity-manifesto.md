@@ -1,8 +1,10 @@
 ---
 title: "A Productivity Manifesto"
 date: 2018-08-25T14:00:09+01:00
-categories:
-  - "productivity"
+slug: "/posts/a-productivity-manifesto"
+template: "post"
+category: "Productivity"
+description: "My personal manifesto on how to stay focussed throughout the day. Make it yours!"
 ---
 
 After [reading quite a few books](https://www.goodreads.com/user/show/62899927-pascal-precht) on productivity, lifestyle and mindfulness, and applying, integrating and practicing my learnings for quite a while in my daily life, I thought it would be useful to write down my thoughts on what works well for me in terms of getting things done throughout the day.
@@ -66,3 +68,4 @@ It's okay to say no. We don't have to be available all the time. We don't have t
 ☝**One last tip on how to be productive**☝
 
 Stop googling for how to be productive. Seriously.
+

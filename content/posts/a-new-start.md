@@ -1,10 +1,12 @@
-+++
-date = 2018-07-09T08:51:44+02:00
-title = "Guess it's time for a new start"
-slug = ""
-tags = []
-categories = []
-+++
+---
+title: "Guess it's time for a new start"
+date: "2018-07-09T08:51:44+02:00"
+template: "post"
+draft: false
+category: "Career"
+slug: "/posts/a-new-start"
+description: "Some thoughts on leaving the comfort zone."
+---
 
 Wait... what? It's been four years since my last post here on my blog? How did that happen... ah right, I spent the past years building [thoughtram](https://thoughtram.io 'thoughtram website') with my buddy [Christoph](https://twitter/cburgdorf 'Christoph Burgdorf on Twitter') and taught [quite a few](https://github.com/orgs/thoughtram/people 'thoughtram organisation') people [how to use Git](https://thoughtram.io/git-master-class.html 'Git Master Class by thoughtram') and how to build [web applications with Angular](https://thoughtram.io/angular-master-class.html 'Angular Master Class by thoughtram').
 
@@ -20,7 +22,7 @@ Teaching people all around the globe software technologies is really fun. In add
 
 That's why for the past few months, I started reading about the decentralization movement (yes yes, also your favorite blockchain) and related topics, such as peer-to-peer networking and cryptography. Turned out I actually really like cryptography, who would have thought...🤔
 
-Similar to what I've done over at thoughtram, I'd like to write about my learnings as I go along. To me, this is very exciting, because I'm kind of starting from scratch. I'm not the guy who's built this super useful plugin for your favorite framework(*cough* [angular-translate](https://angular-translate.github.io 'angular-translate') *cough*), and I'm certainly not carrying another GDE badge for being specialized in this field. Nobody really knows me in that space. It may sound weird, but it's a really nice feeling to have.
+Similar to what I've done over at thoughtram, I'd like to write about my learnings as I go along. To me, this is very exciting, because I'm kind of starting from scratch. I'm not the guy who's built this super useful plugin for your favorite framework (*cough* [angular-translate](https://angular-translate.github.io 'angular-translate') *cough*), and I'm certainly not carrying another GDE badge for being specialized in this field. Nobody really knows me in that space. It may sound weird, but it's a really nice feeling to have.
 
 Just recently I've [managed to land my first pull request](https://github.com/ipfs/js-ipfs/pull/1415 'First PR at the js-ipfs project on GitHub') at the [IPFS project](https://ipfs.io/ 'IPFS') - thanks [Alan](https://twitter.com/Alanshaw 'Alan Shaw on Twitter')!🙏 It's a small step but I'm very happy I found a way to get started. You can expect one or the other post about the project and its fundamentals in the upcoming months.
 
@@ -29,5 +31,6 @@ In case you wonder, yes I still like Angular and the community is probably the n
 However, I'm going to change my focus a little bit. I don't have any concrete plans nor do I have an idea where this takes me. If the title of this post made you think Pascal is going to announce something big, I'm sorry to disappoint you.
 
 Guess it's just time for a new start.
+
 
 

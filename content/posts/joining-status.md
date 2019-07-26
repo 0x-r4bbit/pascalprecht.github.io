@@ -1,6 +1,10 @@
 ---
 title: "Joining the Embark Team at Status"
+template: "post"
 date: 2018-09-24T14:46:50+02:00
+slug: "/posts/joining-status"
+category: "Career"
+description: "I'm joining the Embark team at Status."
 ---
 
 A few months ago, [I wrote about that I'm looking for a change](/posts/a-new-start/) and some fresh air in my career. After spending quite some time learning about building decentralized applications on top of blockchain platforms like [Ethereum](https://ethereum.org/) and contributing to projects like IPFS and [Aragon](https://aragon.org), I'm happy I've got the opportunity to join the [Embark](https://embark.status.im) team at [Status](https://status.im) as a Software Engineer to help pushing this space forward.
@@ -12,5 +16,6 @@ I'll be working on implementing new features, creating extensions (for VSCode ðŸ
 In case you're wondering, [thoughtram](https://thoughtram.io) isn't going anywhere. We have great trainers that will continue providing high-quality workshops. In fact, I've stepped back from doing training for a few months now (as mentioned in [this post](/posts/a-new-start/)) and it's working very well. Also, [MachineLabs](https://machinelabs.ai) is still open source and awaiting your contributions.
 
 Working on Embark is going to be a new challenge for me and I'm looking forward to working with the existing team of super talented engineers, learning more about Ethereum app development and contributing my part to the overall decentralization movement for a better world!
+
 
 

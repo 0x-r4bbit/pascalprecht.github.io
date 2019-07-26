@@ -2,7 +2,7 @@
 
 echo -e "\033[0;32mDeploying website...\033[0m"
 
-hugo
+npx gatsby build
 
 # delete old gh-pages branch
 git branch -D deploy

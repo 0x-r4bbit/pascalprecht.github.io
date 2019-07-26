@@ -1,10 +1,12 @@
-+++
-date = 2018-08-06T09:34:56+02:00
-title = "Content Identifiers in IPFS"
-slug = ""
-tags = []
-categories = ['ipfs']
-+++
+---
+date: 2018-08-06T09:34:56+02:00
+title: "Content Identifiers in IPFS"
+template: "post"
+slug: "/posts/content-identifiers-in-ipfs"
+tags:
+  - "IPFS"
+description: "A deep look at content identifiers in the IPFS protocol."
+---
 
 
 If you've used [IPFS](https://ipfs.io) or watched one or the other talk or tutorial about it, you know that IPFS generates hashes for the data that's being added to the network. While it might be obvious why that is (IPFS uses those hashes to identify content in the network), it's less obvious how those hashes are being put together.

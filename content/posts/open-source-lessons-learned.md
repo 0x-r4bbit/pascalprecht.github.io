@@ -1,10 +1,11 @@
-+++
-date = 2018-09-21T12:52:19+02:00
-title = "Improving your open source experience"
-slug = ""
-tags = []
-categories = ['oss']
-+++
+---
+date: 2018-09-21T12:52:19+02:00
+title: "Improving your Open Source experience"
+template: "post"
+slug: "/posts/open-source-lessons-learned"
+category: "Open Source"
+description: "Ever wanted to know how to get your first Pull Request merged? Or are you wondering how to get people contribute to you projects? Read on."
+---
 
 After working on several open source projects and contributing to even more in the past, I thought it's time to share some thoughts on what worked very well for me as a maintainer of my own, as well as contributor to other projects.
 
@@ -63,3 +64,4 @@ Here's a rule I follow that works very well for me:
 This means, that we shouldn't just say what we don't like and why, but also tell our peers what a good alternative would be and how it can improve the situation. In practice, this often drives very nice discussions without anyone feeling hurt to rejected. 🙃
 
 Alright, that's all I've got. Let me know how it goes for you!
+
