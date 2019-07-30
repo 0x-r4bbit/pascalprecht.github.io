@@ -23,3 +23,9 @@ This book opened my eyes about how important it is to have a purpose in life and
 If you're looking for a way to refocus on what really matters, whether it's work or private life, this book might be worth a read. It taught me how to "filter" everything out in my everyday life that isn't **essential**. Obviously this can be greatly applied to productivity, but also to happiness in life.
 
 [Essentialism on Amazon](https://www.amazon.com/Essentialism-Disciplined-Pursuit-Greg-McKeown/dp/0804137382/ref=sr_1_1?crid=3UQTW9YS6MAWU&keywords=essentialism&qid=1564511515&s=books&sprefix=esseni%2Cstripbooks-intl-ship%2C241&sr=1-1)
+
+### The Art of Accelerated Learning
+
+We all want to get good a things fast but at the same time we already know that there's usually no shortcut. This book offers some very good techniques to learn things quickly, and most importantly, remember them.
+
+[The Art of Accelerated Learning on Amazong](https://www.amazon.com/Science-Accelerated-Learning-Strategies-Comprehensi/dp/1981329323/ref=sr_1_7?keywords=accelerated+learning&qid=1564512337&s=books&sr=1-7)
