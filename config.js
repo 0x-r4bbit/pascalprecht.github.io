@@ -7,8 +7,8 @@ module.exports = {
   subtitle: 'This is my personal blog where I mostly write about code.',
   copyright: '© 2014 - 2019 Made without love.',
   disqusShortname: '',
-  postsPerPage: 4,
-  googleAnalyticsId: 'UA-34513648-1',
+  postsPerPage: 6,
+  googleAnalyticsId: 'UA-34513647-1',
   useKatex: false,
   menu: [
     {
@@ -18,6 +18,10 @@ module.exports = {
     {
       label: 'About',
       path: '/about'
+    },
+    {
+      label: 'Books I like',
+      path: '/favorite-books'
     }
   ],
   author: {
