@@ -26,4 +26,5 @@ git push -f origin deploy-dist:master
 git branch -D deploy-dist
 git checkout dev
 git branch -D deploy
+rm -rf .cache
 
