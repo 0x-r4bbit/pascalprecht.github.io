@@ -32,9 +32,9 @@ Amongst the natural effects of doing something outside your comfort zone is that
 
 When I was a GDE specialized in Angular, people came to me with their questions regularly, or asked for my advice when it came to building and architecting certain things. At conferences, I obviously wanted to live up to that expectation as well and made sure that what I'm speaking about is either unexplored by the community or covers a technical topic in-depth. I would argue that, in a position like this, where you're known for producing high-quality content, it is much easier to make people listen to you and feel confident that what you're doing is indeed the right way to go.
 
-Stepping away from that and doing something I had no clue about was very refreshing and made me realize again what it feels like to attend a conference as non-speaker, to join community channels and ask for help, to invest time in reading books to learn new things and to not be the guy in the room that supposedly knows "everything" (not that I ever said or believed I did, but you get what I mean).
+Stepping away from that and doing something I had no clue about was very refreshing and made me realize again what it feels like to attend a conference as non-speaker, to join community channels and ask for help, to invest time in reading books to learn new things and to not be the guy in the room that supposedly knows "everything" (not that I ever said or believed I did, but hopefully you get what I mean).
 
-Being a "nobody" and leaving your ego at the door before you enter the room is probably the best position to be in if you want to learn something new.
+Acknowledging that you're a beginner again and leaving your ego at the door before you enter the room is probably the best position to be in if you want to learn something new.
 
 ## Confidence comes back one step at a time
 
