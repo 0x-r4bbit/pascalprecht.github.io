@@ -28,4 +28,4 @@ If you're looking for a way to refocus on what really matters, whether it's work
 
 We all want to get good a things fast but at the same time we already know that there's usually no shortcut. This book offers some very good techniques to learn things quickly, and most importantly, remember them.
 
-[The Art of Accelerated Learning on Amazong](https://www.amazon.com/Science-Accelerated-Learning-Strategies-Comprehensi/dp/1981329323/ref=sr_1_7?keywords=accelerated+learning&qid=1564512337&s=books&sr=1-7)
+[The Art of Accelerated Learning on Amazon](https://www.amazon.com/Science-Accelerated-Learning-Strategies-Comprehensi/dp/1981329323/ref=sr_1_7?keywords=accelerated+learning&qid=1564512337&s=books&sr=1-7)
