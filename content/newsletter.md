@@ -1,0 +1,5 @@
+---
+title: "Newsletter"
+template: "newsletter"
+---
+

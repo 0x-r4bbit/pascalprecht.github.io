@@ -1,6 +1,10 @@
 @import '../../assets/scss/variables';
 @import '../../assets/scss/mixins';
 
+figure {
+  margin: 0;
+}
+
 .page {
   @include margin-bottom(2);
 
