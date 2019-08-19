@@ -8,7 +8,7 @@ slug: "/posts/meditating-every-day"
 description: "Meditation has changed my life and in this article I talk about how."
 ---
 
-Meditation can open up surprisingly many doors when it comes to being more aware, mindful, focused and just at piece with yourself. I try to meditate [every morning](a-productivity-manifesto) for about 15 minutes and been doing that for quite some time now. Originally, I tried to find a way to deal with anxiety, however, after such a long time of practing meditation, I get to observe how my mind and character have changed beyond my original motivation, which I find quite amazing.
+Meditation can open up surprisingly many doors when it comes to being more aware, mindful, focused and just at peace with yourself. I try to meditate [every morning](a-productivity-manifesto) for about 15 minutes and been doing that for quite some time now. Originally, I tried to find a way to deal with anxiety, however, after such a long time of practing meditation, I get to observe how my mind and character have changed beyond my original motivation, which I find quite amazing.
 
 With this article I'd like to share how meditating every day has changed the way I think, the way I judge, the way I deal with people, the way I react to (external) stimuli, and pretty much the way I live my life.
 
