@@ -5,7 +5,7 @@ module.exports = {
   pathPrefix: '/',
   title: 'Pascal Precht\'s Blog',
   subtitle: 'This is my personal blog where I mostly write about code.',
-  copyright: '© 2014 - 2019 Made without love.',
+  copyright: '© 2014 - 2020 Made without love.',
   disqusShortname: '',
   postsPerPage: 6,
   googleAnalyticsId: 'UA-34513648-1',
