@@ -63,6 +63,6 @@ If you want to learn a new language and need a nice challenge, I think Rust is a
 
 In order to learn even more about Rust and dive deeper into the language I'm working on a few online courses with my friends over at [Egghead](https://egghead.io). One of the best ways to learn something new is to teach it to someone else. Creating online courses is a great way of doing that. To ensure high quality and good topic coverage, we're running an [online workshop](https://ti.to/egghead-live-online-events/a-tour-of-rust-with-pascal-precht-2020-01-23/discount/early) called "Tour of Rust" on the 23 Janurary 2020.
 
-The workshop is a nice little introduction to the language and aims to give you just enough information and hands-on experience, so that you can start writing your own Rust programs. The ticket price is $ 199 but guess what, by reading this article, you're getting $ 100 off!
+The workshop is a nice little introduction to the language and aims to give you just enough information and hands-on experience, so that you can start writing your own Rust programs. The ticket price is \$199 but guess what, by reading this article, you're getting \$100 off!
 
 Thanks for reading about the start of my Rust journey. I'm write more in-depth articles over at [blog.thoughtram.io](https://blog.thoughtram.io) so make sure to keep an eye on it!
