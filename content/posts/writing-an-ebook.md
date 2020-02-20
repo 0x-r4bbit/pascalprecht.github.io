@@ -1,5 +1,5 @@
 ---
-title: "How I've written and published an ebook in just two months"
+title: "How I wrote and published an ebook in just two months"
 date: "2020-02-21"
 template: "post"
 draft: false
